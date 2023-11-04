@@ -10,6 +10,9 @@ node_modules
 #  smart contract
 artifacts
 cache
+smart-contract/typechain-types/*
+!/smart-contract/typechain-types/index.ts
+
 
 # testing
 /coverage
@@ -31,6 +34,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
+.env
 .env*.local
 
 # vercel
