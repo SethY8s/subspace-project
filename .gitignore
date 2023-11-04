@@ -7,6 +7,10 @@ node_modules
 .pnp.js
 .yarn/install-state.gz
 
+#  smart contract
+artifacts
+cache
+
 # testing
 /coverage
 

@@ -1,0 +1,5 @@
+# ignore everything in the folder except the index.ts
+*
+!.gitignore
+
+!index.ts

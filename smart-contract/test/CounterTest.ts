@@ -1,16 +1,18 @@
 import { ethers } from "hardhat";
 import { expect } from "chai";
-import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
+
+// import generated types for typechain
+import { Counter } from "../typechain-types";
 
 describe("Counter", function () {
-  let Counter: SignerWithAddress;
-  let counter: SignerWithAddress;
-  let owner: SignerWithAddress;
-  let addr: SignerWithAddress[];
+  let Counter
+  let counter: Counter;
+  let owner;
+  let addr;
 
   beforeEach(async function () {
     Counter = await ethers.getContractFactory("Counter");
-    [owner, addr1] = await ethers.getSigners();
+    [owner, addr] = await ethers.getSigners();
 
     counter = await Counter.deploy();
   });
