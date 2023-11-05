@@ -1,37 +1,43 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Counter } from "@/smart-contract/typechain-types";
-import { ethers } from "ethers";
+// import { Counter } from "@/smart-contract/typechain-types";
+import Counter from "@/smart-contract/artifacts/contracts/Counter.sol/Counter.json";
+import { ethers, Contract } from "ethers";
 
 export const SetCount = () => {
   const [counterValue, setCounterValue] = useState(0);
-  const [contract, setContract] = useState(null);
-
-  console.log(Counter.interface);
+  const [contract, setContract] = useState<ethers.Contract | null>(null);
 
   useEffect(() => {
     async function initialize() {
-      // Connect to MetaMask
-      if (window?.ethereum?.request) {
-        await window.ethereum.request({ method: "eth_requestAccounts" });
-        console.log("Connected to MetaMask");
+      try {
+        if (window.ethereum && window?.ethereum?.request) {
+          await window.ethereum.request({ method: "eth_requestAccounts" });
+          console.log("Connected to MetaMask");
+        } else {
+          throw new Error(
+            "MetaMask not available or request method not supported"
+          );
+        }
+
+        const provider = new ethers.BrowserProvider(window.ethereum);
+
+        // Load the contract
+        const contractCreation = new Contract(
+          "0xD5ab84bCd7f3F997f5B4B65593083110D31e1989",
+          Counter.abi,
+          provider
+        );
+
+        setContract(contractCreation);
+
+        // Display the current counter value
+        const value = await contract?.getCounterValue();
+        setCounterValue(value.toNumber());
+      } catch (error) {
+        console.log("Error:", error);
       }
-
-      // Load the contract
-
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const signer = provider.getSigner();
-      const contract = new ethers.Contract(
-        "0xD5ab84bCd7f3F997f5B4B65593083110D31e1989",
-        Counter,
-        signer
-      );
-      setContract(contract);
-
-      // Display the current counter value
-      const value = await contract.getCounterValue();
-      setCounterValue(value.toNumber());
     }
 
     initialize();
@@ -39,11 +45,11 @@ export const SetCount = () => {
 
   const incrementCounter = async () => {
     try {
-      await contract.incrementCounter();
+      await contract?.incrementCounter();
       console.log("Counter incremented");
 
       // Update the counter value in the UI
-      const value = await contract.getCounterValue();
+      const value = await contract?.getCounterValue();
       setCounterValue(value.toNumber());
     } catch (error) {
       console.error("Error incrementing counter:", error);
