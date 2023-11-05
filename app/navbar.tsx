@@ -4,18 +4,14 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { Dialog } from "@headlessui/react";
 import { MdClose, MdMenu } from "react-icons/md";
-import { ethers } from "ethers";
-import { Connectwallet } from "@/components/connect-button";
 
 export /**
- * Reusable page header/toolbar
+ * Simple Navbar/header allowing easy access
  *
- * @param {*} {
- *		title,
- *	}
- *  @return {*}
- *
- */ const Navbar = () => {
+ * @return {*}
+ */
+const Navbar = () => {
+  // hamburger menu open/closed state
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -29,23 +25,23 @@ export /**
             href={"/"}
             className="-m-1.5 flex flex-row place-items-center p-1.5"
           >
-            <p className="bg-black">hello</p>
-            <h2 className="ml-1 text-lg font-semibold">Maet</h2>
+            <h2 className="ml-1 text-lg bg-black font-semibold">
+              Subspace Project
+            </h2>
           </Link>
           <div className="hidden lg:flex lg:gap-x-12">
             <Link
-              href={"https://www.maet.io/"}
+              href={"https://github.com/SethY8s"}
               className="text-md leading-6 text-gray-900"
             >
-              About
+              My Github
             </Link>
             <Link
-              href={"https://blog.maet.io/"}
+              href={"https://github.com/SethY8s/subspace-project#readme"}
               className="text-md leading-6 text-gray-900"
             >
-              Blog
+              Read Me
             </Link>
-            <Connectwallet />
           </div>
         </div>
         <div className="flex lg:hidden">
@@ -77,7 +73,7 @@ export /**
             >
               {/* <MaetIcon size={10} /> */}
               <button className="bg-black">button</button>
-              <h2 className="ml-1 text-lg font-semibold">Maet</h2>
+              <h2 className="ml-1 text-lg font-semibold">Subspace Project</h2>
             </Link>
             <button
               type="button"
@@ -92,16 +88,16 @@ export /**
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
                 <Link
-                  href={"https://www.maet.io/"}
+                  href={"https://github.com/SethY8s"}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  About
+                  My Github
                 </Link>
                 <Link
-                  href={"https://blog.maet.io/"}
+                  href={"https://github.com/SethY8s/subspace-project#readme"}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Blog
+                  Read Me
                 </Link>
               </div>
               <div className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
