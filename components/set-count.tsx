@@ -53,8 +53,25 @@ export const SetCount = () => {
 
   const incrementCounter = async () => {
     try {
-      await contract?.increment();
+      const tx = await contract?.increment();
       console.log("Counter incremented");
+      await tx?.wait();
+
+      // Update the counter value in the UI
+      const value = await contract?.number();
+      if (value) {
+        setCounterValue(Number(value));
+      }
+    } catch (error) {
+      console.error("Error incrementing counter:", error);
+    }
+  };
+
+  const decrementCounter = async () => {
+    try {
+      const tx = await contract?.decrement();
+      console.log("Counter incremented");
+      await tx?.wait();
 
       // Update the counter value in the UI
       const value = await contract?.number();
@@ -67,13 +84,19 @@ export const SetCount = () => {
   };
 
   return (
-    <div>
-      <h1 className="text-red-500">Counter Value: {counterValue}</h1>
+    <div className="flex justify-between items-center">
+      <button
+        onClick={decrementCounter}
+        className="h-12 px-6 m-2 text-lg text-indigo-100 transition-colors duration-150 bg-gray-900 rounded-lg focus:shadow-outline hover:bg-gray-700"
+      >
+        Decrease
+      </button>
+      <h1 className="text-red-500 font-bold text-xl">Counter: {counterValue}</h1>
       <button
         onClick={incrementCounter}
-        className="h-12 px-6 m-2 text-lg text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800"
+        className="h-12 px-6 m-2 text-lg text-indigo-100 transition-colors duration-150 bg-gray-900 rounded-lg focus:shadow-outline hover:bg-gray-700"
       >
-        Large
+        Increase
       </button>
     </div>
   );

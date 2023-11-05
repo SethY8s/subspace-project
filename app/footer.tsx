@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
 
 export /**
  * Reusable page header/toolbar
