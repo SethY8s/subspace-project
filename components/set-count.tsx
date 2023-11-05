@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Counter } from "@/smart-contract/typechain-types";
-import { Counter__factory } from "@/smart-contract/typechain-types/factories/contracts";
+import { Counter__factory } from "../smart-contract/typechain-types/factories/contracts/Counter__factory";
 import { ethers } from "ethers";
 
 export const SetCount = () => {
