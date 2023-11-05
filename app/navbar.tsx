@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Dialog } from "@headlessui/react";
 import { MdClose, MdMenu } from "react-icons/md";
 import { ethers } from "ethers";
+import { Connectwallet } from "@/components/connect-button";
 
 export /**
  * Reusable page header/toolbar
@@ -16,22 +17,6 @@ export /**
  *
  */ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  // Check if MetaMask is installed and available
-  if (typeof window.ethereum !== "undefined") {
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-
-    // Request user's permission to access their Ethereum account
-    const requestAccount = async () => {
-      try {
-        await window.ethereum.request({ method: "eth_requestAccounts" });
-      } catch (error) {
-        console.error("User denied account access");
-      }
-    };
-  } else {
-    console.error("MetaMask is not installed");
-  }
 
   return (
     <header className="fixed top-0 z-50 h-20 w-full border-b border-gray-900/10 bg-white">
@@ -60,6 +45,7 @@ export /**
             >
               Blog
             </Link>
+            <Connectwallet />
           </div>
         </div>
         <div className="flex lg:hidden">

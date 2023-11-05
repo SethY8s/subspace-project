@@ -3,7 +3,7 @@
 import React from "react";
 // import { ethers } from 'ethers';
 
-export default function Connectwallet() {
+export const Connectwallet = () => {
   const conncetWallet = async () => {
     try {
       if (!window.ethereum) {
@@ -12,7 +12,9 @@ export default function Connectwallet() {
         );
       }
 
-      await window.ethereum.send("eth_requestAccounts");
+      if (window.ethereum.request) {
+        await window.ethereum.request({ method: "eth_requestAccounts" });
+      }
     } catch (err) {
       console.log(err);
     }
@@ -20,7 +22,9 @@ export default function Connectwallet() {
 
   return (
     <>
-      <button onClick={() => conncetWallet()}>Connect to MetaMask</button>
+      <button className="bg-black" onClick={() => conncetWallet()}>
+        Connect to MetaMask
+      </button>
     </>
   );
-}
+};
