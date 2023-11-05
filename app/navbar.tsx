@@ -15,7 +15,7 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 z-50 h-20 w-full border-b border-gray-900/10 bg-white">
+    <header className="fixed top-0 z-50 h-20 w-full border-b border-gray-900/10">
       <nav
         className="lg:px-98 mx-auto flex max-w-[1600px] items-center justify-between p-6"
         aria-label="Global"
@@ -25,20 +25,18 @@ const Navbar = () => {
             href={"/"}
             className="-m-1.5 flex flex-row place-items-center p-1.5"
           >
-            <h2 className="ml-1 text-lg bg-black font-semibold">
-              Subspace Project
-            </h2>
+            <h2 className="ml-1 text-lg text-gray-600 font-semibold">Subspace Project</h2>
           </Link>
           <div className="hidden lg:flex lg:gap-x-12">
             <Link
               href={"https://github.com/SethY8s"}
-              className="text-md leading-6 text-gray-900"
+              className="text-md leading-6 text-gray-500"
             >
               My Github
             </Link>
             <Link
               href={"https://github.com/SethY8s/subspace-project#readme"}
-              className="text-md leading-6 text-gray-900"
+              className="text-md leading-6 text-gray-500"
             >
               Read Me
             </Link>
@@ -71,13 +69,13 @@ const Navbar = () => {
               href={"/"}
               className="-m-1.5 flex flex-row place-items-center p-1.5"
             >
-              {/* <MaetIcon size={10} /> */}
+              
               <button className="bg-black">button</button>
-              <h2 className="ml-1 text-lg font-semibold">Subspace Project</h2>
+              <h2 className="ml-1 text-lg text-gray-600 font-semibold">Subspace Project</h2>
             </Link>
             <button
               type="button"
-              className="-m-2.5 rounded-md p-2.5 text-gray-700"
+              className="-m-2.5 rounded-md p-2.5 text-gray-600"
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
@@ -89,18 +87,18 @@ const Navbar = () => {
               <div className="space-y-2 py-6">
                 <Link
                   href={"https://github.com/SethY8s"}
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-600 hover:bg-gray-50"
                 >
                   My Github
                 </Link>
                 <Link
                   href={"https://github.com/SethY8s/subspace-project#readme"}
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-600 hover:bg-gray-50"
                 >
                   Read Me
                 </Link>
               </div>
-              <div className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+              <div className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-600 hover:bg-gray-50">
                 {/* <ProfileButton /> */}
                 <button>button</button>
               </div>

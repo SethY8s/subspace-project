@@ -14,10 +14,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
-        <div className="flex flex-col">
-          {children}
-          <Footer />
+        <div className="bg-gradient-to-t from-gray-900 to-gray-200">
+          <Navbar />
+          <div className="flex flex-col">
+            {children}
+            <Footer />
+          </div>
         </div>
       </body>
     </html>

@@ -11,8 +11,8 @@ export /**
  *  @return {*}
  *
  */ const Footer = () => (
-  <footer className="w-full bg-gray-100">
-    <div className="my-20 overflow-hidden px-6 sm:mt-24 lg:px-8">
+  <footer className="w-full">
+    <div className="my-4 overflow-hidden px-6 lg:px-8">
       <nav
         className="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12"
         aria-label="Footer"
