@@ -1,10 +1,7 @@
 import Image from "next/image";
+import { SetCount } from "@/components/set-count";
 
 export default async function Home() {
-  // const { ethers } = require('ethers');
-
-  
-
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
@@ -31,6 +28,8 @@ export default async function Home() {
           </a>
         </div>
       </div>
+
+      <SetCount />
 
       <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
         <a

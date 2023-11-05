@@ -33,8 +33,10 @@ export const SetCount = () => {
         setContract(contractCreation);
 
         // Display the current counter value
-        const value = await contract?.getCounterValue();
-        setCounterValue(value.toNumber());
+        const value = await contract?.name();
+        if (value) {
+          setCounterValue(value);
+        }
       } catch (error) {
         console.log("Error:", error);
       }
@@ -43,14 +45,29 @@ export const SetCount = () => {
     initialize();
   }, []);
 
-  const incrementCounter = async () => {
+  // const incrementCounter = async () => {
+  //   try {
+  //     await contract?.incrementCounter();
+  //     console.log("Counter incremented");
+
+  //     // Update the counter value in the UI
+  //     const value = await contract?.getCounterValue();
+  //     setCounterValue(value.toNumber());
+  //   } catch (error) {
+  //     console.error("Error incrementing counter:", error);
+  //   }
+  // };
+
+  const setCount = async () => {
     try {
-      await contract?.incrementCounter();
+      const tx = await contract?.setNumber(5);
+      await tx.wait();
       console.log("Counter incremented");
 
       // Update the counter value in the UI
-      const value = await contract?.getCounterValue();
-      setCounterValue(value.toNumber());
+      const value = await contract?.number();
+      console.log(value);
+      // setCounterValue(value.toNumber());
     } catch (error) {
       console.error("Error incrementing counter:", error);
     }
@@ -59,7 +76,12 @@ export const SetCount = () => {
   return (
     <div>
       <h1>Counter Value: {counterValue}</h1>
-      <button onClick={incrementCounter}>Increment Counter</button>
+      <button
+        onClick={setCount}
+        className="h-12 px-6 m-2 text-lg text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800"
+      >
+        Large
+      </button>
     </div>
   );
 };
