@@ -1,4 +1,6 @@
-A simple but complete Dapp. Although not riveting, it has all the fundamentals of a modern web3 application. The project prioritized type safety, code cleanliness, modularity, and correctness. I chose Next 14 for its ability to be a compelling frontend library, while also allowing backend functionality, such as REST routes and server components/actions. Solidity and Hardhat were used to create and deploy our smart contract. Additionally, I used Typechain to create all the necessary typings and ABIs when compiling the smart contract. Ethers.js was used on the client side to interact with the smart contract and connect to the user's metamask.
+## Summary
+
+A simple but complete Dapp. Although not riveting, it has all the fundamentals of a modern web3 application. The project prioritized type safety, code cleanliness, modularity, and correctness. I chose Next 14 for its ability to be a compelling frontend library, while also allowing backend functionality, such as REST routes and server components/actions. Solidity and Hardhat were used to create and deploy our smart contract to the Subspace network. Additionally, I used Typechain to create all the necessary typings and ABIs when compiling the smart contract. Ethers.js was used on the client side to interact with the smart contract and connect to the user's metamask. 
 
 
 ## Getting Started
@@ -55,7 +57,9 @@ npx hardhat flatten contracts/Counter.sol > Flattened.sol
 This will create a flattened version of your solidity code, copy the generated file and you can also verify your contract with this method.
 
 
+## Projects Original Vision
 
+Although I am very happy with the result of the project, the original vision was much greater. I wanted to make a Uniswap-like system that can take in Subspace Tokens and convert them to the ERC20 token I created while making the project. Although I believe I could have done this without issue given more time, I prioritized code structure and static tying. As I gained experience in large codebases I realized the necessity for this and I will always prioritize better code than more code. This project was an amazing stepping stone into my Web3 journey and I am grateful for everything I learned while creating it.
 
 
 ## Deploy on Vercel
