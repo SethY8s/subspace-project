@@ -66,25 +66,6 @@ export const SetCount = () => {
     }
   };
 
-  // const setCount = async () => {
-  //   console.log(contract);
-
-  //   try {
-  //     const tx = await contract?.setNumber(5);
-  //     if (tx) {
-  //       await tx.wait();
-  //     }
-  //     console.log("Counter incremented");
-
-  //     // Update the counter value in the UI
-  //     const value = await contract?.number();
-  //     console.log(value);
-  //     // setCounterValue(value.toNumber());
-  //   } catch (error) {
-  //     console.error("Error incrementing counter:", error);
-  //   }
-  // };
-
   return (
     <div>
       <h1 className="text-red-500">Counter Value: {counterValue}</h1>

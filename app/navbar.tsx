@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <header className="fixed top-0 z-50 h-20 w-full border-b border-gray-900/10">
       <nav
-        className="lg:px-98 mx-auto flex max-w-[1600px] items-center justify-between p-6"
+        className="lg:px-98 mx-auto flex text-gray-600 max-w-[1600px] items-center justify-between p-6"
         aria-label="Global"
       >
         <div className="flex items-center gap-x-12">
@@ -25,37 +25,39 @@ const Navbar = () => {
             href={"/"}
             className="-m-1.5 flex flex-row place-items-center p-1.5"
           >
-            <h2 className="ml-1 text-lg text-gray-600 font-semibold">Subspace Project</h2>
+            <h2 className="ml-1 text-lg font-semibold">Subspace Project</h2>
           </Link>
           <div className="hidden lg:flex lg:gap-x-12">
             <Link
               href={"https://github.com/SethY8s"}
-              className="text-md leading-6 text-gray-500"
+              className="text-md leading-6"
             >
               My Github
             </Link>
             <Link
               href={"https://github.com/SethY8s/subspace-project#readme"}
-              className="text-md leading-6 text-gray-500"
+              className="text-md leading-6"
             >
               Read Me
             </Link>
           </div>
         </div>
         <div className="flex lg:hidden">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <span className="sr-only">Open main menu</span>
-            <MdMenu className="h-6 w-6" aria-hidden="true" />
-          </button>
+          {mobileMenuOpen ? null : (
+            <button
+              type="button"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 "
+              onClick={() => setMobileMenuOpen(true)}
+            >
+              <MdMenu className="h-6 w-6" aria-hidden="true" />
+            </button>
+          )}
         </div>
         <div className="hidden lg:flex">
-          <button className="bg-black">Button</button>
+          <button>Button</button>
         </div>
       </nav>
+      {/* mobile section */}
       <Dialog
         as="nav"
         className="lg:hidden"
@@ -63,43 +65,37 @@ const Navbar = () => {
         onClose={setMobileMenuOpen}
       >
         <div className="fixed inset-0 z-10" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-gradient-to-t from-gray-900 to-gray-200 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <Link
               href={"/"}
               className="-m-1.5 flex flex-row place-items-center p-1.5"
-            >
-              
-              <button className="bg-black">button</button>
-              <h2 className="ml-1 text-lg text-gray-600 font-semibold">Subspace Project</h2>
-            </Link>
+            ></Link>
             <button
               type="button"
-              className="-m-2.5 rounded-md p-2.5 text-gray-600"
+              className="-m-2.5 color-gray-600 rounded-md p-2.5"
               onClick={() => setMobileMenuOpen(false)}
             >
-              <span className="sr-only">Close menu</span>
               <MdClose className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
-          <div className="mt-6 flow-root">
+          <div className="mt-6 text-gray-600 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
                 <Link
                   href={"https://github.com/SethY8s"}
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-600 hover:bg-gray-50"
+                  className="-mx-3 mt-6 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-gray-50"
                 >
                   My Github
                 </Link>
                 <Link
                   href={"https://github.com/SethY8s/subspace-project#readme"}
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-600 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-gray-50"
                 >
                   Read Me
                 </Link>
               </div>
-              <div className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-600 hover:bg-gray-50">
-                {/* <ProfileButton /> */}
+              <div className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-gray-50">
                 <button>button</button>
               </div>
             </div>

@@ -16,10 +16,8 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="bg-gradient-to-t from-gray-900 to-gray-200">
           <Navbar />
-          <div className="flex flex-col">
-            {children}
-            <Footer />
-          </div>
+          {children}
+          <Footer />
         </div>
       </body>
     </html>
