@@ -10,9 +10,9 @@ node_modules
 #  smart contract
 artifacts
 cache
-smart-contract/typechain-types/*
-!/smart-contract/typechain-types/index.ts
-!/smart-contract/typechain-types/factories
+# smart-contract/typechain-types/*
+# !/smart-contract/typechain-types/index.ts
+# !/smart-contract/typechain-types/factories
 
 
 
