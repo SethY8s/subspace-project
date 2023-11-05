@@ -31,8 +31,6 @@ export const SetCount = () => {
           signer
         );
 
-        Counter__factory;
-
         const sup = await contractCreation?.totalSupply();
         setContract(contractCreation);
 
@@ -91,7 +89,9 @@ export const SetCount = () => {
       >
         Decrease
       </button>
-      <h1 className="text-red-500 font-bold text-xl">Counter: {counterValue}</h1>
+      <h1 className="text-red-500 font-bold text-xl">
+        Counter: {counterValue}
+      </h1>
       <button
         onClick={incrementCounter}
         className="h-12 px-6 m-2 text-lg text-indigo-100 transition-colors duration-150 bg-gray-900 rounded-lg focus:shadow-outline hover:bg-gray-700"
