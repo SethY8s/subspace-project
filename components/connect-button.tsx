@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { Counter } from "@/smart-contract/typechain-types";
 // import { ethers } from 'ethers';
 
 export const Connectwallet = () => {
