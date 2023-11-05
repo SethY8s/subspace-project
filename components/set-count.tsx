@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-// import { Counter } from "@/smart-contract/typechain-types";
-import Counter from "@/smart-contract/artifacts/contracts/Counter.sol/Counter.json";
-import { ethers, Contract } from "ethers";
+import { Counter } from "@/smart-contract/typechain-types";
+import { Counter__factory } from "@/smart-contract/typechain-types/factories/contracts";
+import { ethers } from "ethers";
 
 export const SetCount = () => {
   const [counterValue, setCounterValue] = useState(0);
-  const [contract, setContract] = useState<ethers.Contract | null>(null);
+  const [contract, setContract] = useState<Counter | null>(null);
 
   useEffect(() => {
     async function initialize() {
@@ -24,13 +24,15 @@ export const SetCount = () => {
         const provider = new ethers.BrowserProvider(window.ethereum);
 
         // Load the contract
-        const contractCreation = new Contract(
+        const contractCreation = Counter__factory.connect(
           "0x35AA9705aF37d72D631E164Cc2B98C7dC2cB99F8",
-          Counter.abi,
           provider
         );
 
+        const sup = await contractCreation?.totalSupply();
         setContract(contractCreation);
+
+        console.log("sup", sup);
 
         // Display the current counter value
         const value = await contractCreation?.number();
@@ -61,7 +63,7 @@ export const SetCount = () => {
   const setCount = async () => {
     try {
       const tx = await contract?.setNumber(5);
-      await tx.wait();
+      // await tx.wait();
       console.log("Counter incremented");
 
       // Update the counter value in the UI
