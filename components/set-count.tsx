@@ -25,7 +25,7 @@ export const SetCount = () => {
 
         // Load the contract
         const contractCreation = new Contract(
-          "0xD5ab84bCd7f3F997f5B4B65593083110D31e1989",
+          "0x35AA9705aF37d72D631E164Cc2B98C7dC2cB99F8",
           Counter.abi,
           provider
         );
@@ -33,10 +33,10 @@ export const SetCount = () => {
         setContract(contractCreation);
 
         // Display the current counter value
-        const value = await contract?.name();
-        if (value) {
-          setCounterValue(value);
-        }
+        const value = await contractCreation?.number();
+        console.log("value", value);
+
+        setCounterValue(Number(value));
       } catch (error) {
         console.log("Error:", error);
       }
@@ -75,7 +75,7 @@ export const SetCount = () => {
 
   return (
     <div>
-      <h1>Counter Value: {counterValue}</h1>
+      <h1 className="text-red-500">Counter Value: {counterValue}</h1>
       <button
         onClick={setCount}
         className="h-12 px-6 m-2 text-lg text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800"
