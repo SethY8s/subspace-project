@@ -23,11 +23,15 @@ export const SetCount = () => {
 
         const provider = new ethers.BrowserProvider(window.ethereum);
 
+        const signer = await provider.getSigner();
+
         // Load the contract
         const contractCreation = Counter__factory.connect(
           "0x35AA9705aF37d72D631E164Cc2B98C7dC2cB99F8",
-          provider
+          signer
         );
+
+        Counter__factory;
 
         const sup = await contractCreation?.totalSupply();
         setContract(contractCreation);
@@ -47,39 +51,45 @@ export const SetCount = () => {
     initialize();
   }, []);
 
-  // const incrementCounter = async () => {
-  //   try {
-  //     await contract?.incrementCounter();
-  //     console.log("Counter incremented");
-
-  //     // Update the counter value in the UI
-  //     const value = await contract?.getCounterValue();
-  //     setCounterValue(value.toNumber());
-  //   } catch (error) {
-  //     console.error("Error incrementing counter:", error);
-  //   }
-  // };
-
-  const setCount = async () => {
+  const incrementCounter = async () => {
     try {
-      const tx = await contract?.setNumber(5);
-      // await tx.wait();
+      await contract?.increment();
       console.log("Counter incremented");
 
       // Update the counter value in the UI
       const value = await contract?.number();
-      console.log(value);
-      // setCounterValue(value.toNumber());
+      if (value) {
+        setCounterValue(Number(value));
+      }
     } catch (error) {
       console.error("Error incrementing counter:", error);
     }
   };
 
+  // const setCount = async () => {
+  //   console.log(contract);
+
+  //   try {
+  //     const tx = await contract?.setNumber(5);
+  //     if (tx) {
+  //       await tx.wait();
+  //     }
+  //     console.log("Counter incremented");
+
+  //     // Update the counter value in the UI
+  //     const value = await contract?.number();
+  //     console.log(value);
+  //     // setCounterValue(value.toNumber());
+  //   } catch (error) {
+  //     console.error("Error incrementing counter:", error);
+  //   }
+  // };
+
   return (
     <div>
       <h1 className="text-red-500">Counter Value: {counterValue}</h1>
       <button
-        onClick={setCount}
+        onClick={incrementCounter}
         className="h-12 px-6 m-2 text-lg text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800"
       >
         Large
