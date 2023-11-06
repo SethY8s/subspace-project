@@ -15,13 +15,14 @@ export const SetCount = () => {
         >
           Decrease
         </button>
+
         <h1 className="text-red-500 font-bold text-xl flex">
           Counter:{" "}
           {isLoading ? (
-            <div role=" ml-4 status">
+            <div className="ml-2" role="ml-8 status">
               <svg
                 aria-hidden="true"
-                className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+                className="w-6 h-6 text-gray-200 animate-spin dark:text-gray-600 fill-red-500"
                 viewBox="0 0 100 101"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -41,6 +42,7 @@ export const SetCount = () => {
             counterValue
           )}
         </h1>
+
         <button
           onClick={() => adjustCounter(true)}
           className="h-12 px-6 m-2 text-lg transition-colors duration-150 bg-gray-900 rounded-lg focus:shadow-outline hover:bg-gray-700"
