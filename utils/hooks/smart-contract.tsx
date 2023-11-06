@@ -25,8 +25,8 @@ const useSmartContract = () => {
           await window.ethereum.request({ method: "eth_requestAccounts" });
           console.log("Connected to MetaMask");
         } else {
-          throw new Error(
-            "MetaMask not available or request method not supported"
+          setError(
+            "MetaMask Chrome extension not installed"
           );
         }
 
