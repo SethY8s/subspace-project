@@ -3,6 +3,7 @@ pragma solidity ^0.8.20;
 
 import '@openzeppelin/contracts/token/ERC20/ERC20.sol';
 
+// Example Smart Contract from Subspace Hardhat configuration
 contract Counter is ERC20 {
     constructor() ERC20("SubspaceTestToken", "TSSCtest") {}
 
