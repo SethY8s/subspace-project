@@ -4,6 +4,7 @@ import { expect } from "chai";
 // import generated types for typechain
 import { Counter } from "../typechain-types";
 
+// Unit Test for the smart contract
 describe("Counter", function () {
   let Counter
   let counter: Counter;

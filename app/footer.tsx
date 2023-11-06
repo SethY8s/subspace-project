@@ -3,14 +3,10 @@ import Link from "next/link";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
 
 export /**
- * Reusable page header/toolbar
+ * Easy to use prebuilt footer
  *
- * @param {*} {
- *		title,
- *	}
- *  @return {*}
- *
- */ const Footer = () => (
+ */
+const Footer = () => (
   <footer className="w-full">
     <div className="pb-2 overflow-hidden px-6 lg:px-8">
       <nav
