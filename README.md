@@ -48,7 +48,7 @@ npx hardhat run scripts/deploy.ts --network subspace
 
 And there you have it, you just deployed the smart contract!
 
-#### Verification
+#### Contract Verification
 
 For verification, I recommend going into your smart contract's artifacts --> build-info folder and copy the "input" object. This will be your solidiy.json verification certificate.
 
@@ -65,11 +65,11 @@ This will create a flattened version of your solidity code, copy the generated f
 
 While I am pleased with the project's outcome, the initial vision was considerably more ambitious. My original goal was to develop a system akin to Uniswap, capable of accepting Subspace Tokens and converting them into the ERC20 token I crafted during the project's development. Despite my confidence in being able to implement this functionality given more time, I made the deliberate choice to prioritize code organization and type safety.
 
-My journey through various projects involving large codebases has instilled in me a deep appreciation for structured, statically typed code. Through these experiences, I have come to understand the paramount importance of code quality over quantity. This project, in particular, has served as an invaluable stepping stone in my Web3 journey, allowing me to apply and solidify the knowledge I gained from my previous encounters with extensive codebases.
+My journey through various projects involving large codebases has instilled in me a deep appreciation for structured, statically typed code. Through these experiences, I have come to understand the paramount importance of code quality over quantity. This project, in particular, shows that value.
 
 ## Key Project Points
 
-- As I have stated several times, type safety was a priority. I have worked with all of these tools in the past, however, I never understood how to work with them with Typescript. I wanted to make sure I fully understood how to create elegant smart contract code while also being 100% type-safe on the client. This led me to use Typechain a library I have never used before. It was really nice how it was able to generate all the ABI typings as well as the smart contracts type. Also, I am very familiar with typescript and react, so there was no issue adding type safety to my components and functions.
+- As I have stated several times, type safety was a priority. I have worked with all of these tools in the past, however, I never understood how to work with them with Typescript. I wanted to make sure I fully understood how to create elegant smart contract code while also being 100% type-safe on the client. This led me to use Typechain, a library I have never used before. It was really nice how it was able to generate all the ABI typings as well as the smart contracts type. Also, I am very familiar with typescript and react, so there was no issue adding type safety to my components and functions.
 - Documented Code. With all of my recent projects, I have made sure to document important functions, making it easy to understand and make updates.
 - Although very strange for a personal project, I make sure to emulate working for a team by making branches, doing pull requests, and even commenting on the pull requests with appropriate names and descriptions. You can view both pull requests (here)[https://github.com/SethY8s/subspace-project/pull/1] and (here)[https://github.com/SethY8s/subspace-project/pull/3]
 
@@ -79,6 +79,8 @@ My journey through various projects involving large codebases has instilled in m
 - Ether.js interactivity with the smart contract. Allows users to increase and decrease the count on the ERC20 Token
 - Smart Contract Deployed on the Subspace Network.
 - HardHat was used for creating and deploying the contract because of it easy to use of deployment methods
+
+<img width="1470" alt="Screenshot 2023-11-06 at 11 01 45 PM" src="https://github.com/SethY8s/subspace-project/assets/95386742/2cf7a330-dad1-4b27-afb7-7e3c3c90cb30">
 
 ### Features I wanted to add
 
