@@ -3,7 +3,13 @@ import { Counter } from "@/smart-contract/typechain-types";
 import { Counter__factory } from "@/smart-contract/typechain-types/factories/contracts/Counter__factory";
 import { ethers } from "ethers";
 
-export const useSmartContract = () => {
+export /**
+ * Hook that connects to user's MetaMask client and
+ * returns all important states relating to the contract
+ *
+ * @return {*}
+ */
+const useSmartContract = () => {
   // State variables to store the counter value and the smart contract instance
   const [counterValue, setCounterValue] = useState(0);
   const [contract, setContract] = useState<Counter | null>(null);
@@ -47,7 +53,13 @@ export const useSmartContract = () => {
 
     initialize();
   }, []);
-
+  /**
+   * Function that takes in a boolean and increments
+   * or decrements the contract count based on the input.
+   *
+   * @param {boolean} increment - decides which contract method to call
+   * @return {*}  {Promise<void>}
+   */
   const adjustCounter = async (increment: boolean): Promise<void> => {
     try {
       if (increment) {

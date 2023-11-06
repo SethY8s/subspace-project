@@ -3,7 +3,18 @@
 import React, { useState, useEffect } from "react";
 import { useSmartContract } from "@/utils/hooks/smart-contract";
 
-export const SetCount = () => {
+export /**
+ * Component that allows users to add add
+ * and subtract from the smart contract's value
+ *
+ * @note
+ * Idealy this would have more options to interact with the smart contract, however I had limited time.
+ *
+ * @return {*}
+ */
+const SmartContractContainer = () => {
+  // userSmartContract hook to easily get all the important
+  // parts of the contract and interact with it
   const { counterValue, adjustCounter, error, isLoading } = useSmartContract();
 
   return (
