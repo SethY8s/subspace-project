@@ -54,6 +54,7 @@ export const useSmartContract = () => {
         // create the transaction
         const tx = await contract?.increment();
         console.log("Counter incremented");
+        setIsLoading(true);
         await tx?.wait();
 
         const value = await contract?.number();
@@ -64,6 +65,7 @@ export const useSmartContract = () => {
         // create the transaction
         const tx = await contract?.decrement();
         console.log("Counter decremented");
+        setIsLoading(true);
         await tx?.wait();
 
         // Update the counter value in the UI
@@ -72,6 +74,8 @@ export const useSmartContract = () => {
           setCounterValue(Number(value));
         }
       }
+      setIsLoading(false);
+      setIsSuccess(true);
     } catch (error: any) {
       console.error("Error:", error);
       setError(error.message);
